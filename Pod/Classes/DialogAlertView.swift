@@ -36,7 +36,7 @@ public typealias TextFieldDelegateClosure = (_ textField: UITextField, _ range: 
 
 public class DialogAlertView: UIViewController {
     
-    private var dialogBorderColor: UIColor {
+    private var defaultDialogBorderColor: UIColor {
         return UIColor.groupTableViewBackground
     }
     
@@ -61,7 +61,7 @@ public class DialogAlertView: UIViewController {
         
         dv.layer.cornerRadius = DialogFrame.cornerRadious.value
         dv.layer.borderWidth = DialogFrame.borderWidth.value
-        dv.layer.borderColor = self.dialogBorderColor.cgColor
+        dv.layer.borderColor = self.defaultDialogBorderColor.cgColor
         
         return dv
     }()
@@ -210,23 +210,34 @@ public class DialogAlertView: UIViewController {
         }
     }
     
-    ///
     internal var _isTextFieldAvailable: Bool = false
     
-    ///
     public var isTextFieldAvailable: Bool {
         return _isTextFieldAvailable
     }
     
-    ///
     public var textFieldClosure: TextFieldDelegateClosure?
     
-    ///
     public var isBlurEffectOn: Bool! = true {
         willSet {
             if !newValue {
                 self.manageBlurEffect()
             }
+        }
+    }
+    
+    /// DialogView background color
+    public var dialogColor: UIColor? {
+        willSet {
+            if let newValue = newValue {
+                dialogView.backgroundColor = newValue
+            }
+        }
+    }
+    
+    public var dialogBorderColor: UIColor? {
+        willSet {
+            dialogView.layer.borderColor = newValue?.cgColor
         }
     }
     
@@ -237,7 +248,7 @@ public class DialogAlertView: UIViewController {
     fileprivate var alternateButtonCompletion: ButtonCompletion?
     
     //MARK: Initializers
-    init(titleText: String, buttonText: String) {
+    public init(titleText: String, buttonText: String) {
         super.init(nibName: nil, bundle: nil)
         
         defaultCustomization()
@@ -248,7 +259,7 @@ public class DialogAlertView: UIViewController {
         initializeView()
     }
     
-    convenience init(titleText: String, messageText: String, buttonText: String) {
+    public convenience init(titleText: String, messageText: String, buttonText: String) {
         self.init(titleText: titleText, buttonText: buttonText)
         self.messageText = messageText
     }
@@ -374,7 +385,6 @@ public extension DialogAlertView {
         self.textFieldClosure = firstTextField
         _isTextFieldAvailable = true
         textField = defaultTextField
-        self.dialogView.addSubview(self.defaultTextField)
         
         addTextfieldConstraints()
     }
