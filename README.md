@@ -1,19 +1,25 @@
-pod-template
+Android dialog alert
 ============
 
-An opinionated template for creating a Pod with the following features:
-
-- Git as the source control management system
-- Clean folder structure
-- Project generation
-- MIT license
-- Testing as a standard
-- Turnkey access to Travis CI
-- Also supports Carthage
+This library is meant for ease of implementation. Although some customization is provided. 
 
 ## Getting started
 
-There are two reasons for wanting to work on this template, making your own or improving the one for everyone's. In both cases you will want to work with the ruby classes inside the `setup` folder, and the example base template that it works on from inside `template/ios/`. 
+To get the best possible results (with some updates over time) I recommend the installation using cocoa pods:
+
+`pod 'AndroidDialogAlert'`
+
+Also, you can download the project and installed it manually.
+All required files are inside `Pod/Classes`, just copy and paste them.
+
+## Example
+
+Some example...
+
+## TODO's
+
+- [ ] add show and dismiss custom animations
+
 
 ## Best practices
 
@@ -24,3 +30,4 @@ It is open to communal input, but adding new features, or new ideas are probably
 ## Requirements:
 
 - CocoaPods 1.0.0+
+- iOS 9+

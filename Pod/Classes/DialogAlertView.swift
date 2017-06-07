@@ -30,6 +30,16 @@ internal enum ButtonFrame: CGFloat, EnumProtocol {
     case padding = 16
 }
 
+public protocol Subview {
+    var layer: CALayer {get set}
+    var translatesAutoresizingMaskIntoConstraints: Bool { get set }
+}
+
+extension Subview where Self: UIView {
+    
+}
+
+
 public typealias ButtonCompletion = (DialogAlertView) -> ()
 
 public typealias TextFieldDelegateClosure = (_ textField: UITextField, _ range: NSRange, _ replacementString: String) -> ()
@@ -377,12 +387,12 @@ public extension DialogAlertView {
         alternateButtonCompletion = completion
     }
     
-    /// <#Description#>
+    /// Initialize the defeault textfield and starts listening to the textfield delegates
     ///
-    /// - Parameter firstTextField: <#firstTextField description#>
-    func textField(withClosure firstTextField: @escaping TextFieldDelegateClosure) {
+    /// - Parameter textTield: textfield actions
+    func textField(withClosure textTield: @escaping TextFieldDelegateClosure) {
         
-        self.textFieldClosure = firstTextField
+        self.textFieldClosure = textTield
         _isTextFieldAvailable = true
         textField = defaultTextField
         
