@@ -72,6 +72,9 @@ public class DialogAlertView: UIViewController {
         dv.layer.cornerRadius = DialogFrame.cornerRadious.value
         dv.layer.borderWidth = DialogFrame.borderWidth.value
         dv.layer.borderColor = self.defaultDialogBorderColor.cgColor
+        dv.layer.shadowOffset = CGSize(width:0, height:20);
+        dv.layer.shadowRadius = 5;
+        dv.layer.shadowOpacity = 0.5;
         
         return dv
     }()
@@ -337,7 +340,7 @@ private extension DialogAlertView {
         initializeConstraints()
         
         addBackgroundContraints(inView: view)
-        manageBlurEffect()
+//        manageBlurEffect()
         
         // show with textfield if required
         if _isTextFieldAvailable {
