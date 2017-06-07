@@ -24,7 +24,7 @@ extension UITextField {
         
         layer.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: bottomLayerHeight)
         layer.backgroundColor = layerColor.cgColor
-        layer.addSublayer(layer)
+        self.layer.addSublayer(layer)
     }
     
 }
