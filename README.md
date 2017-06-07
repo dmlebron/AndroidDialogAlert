@@ -14,7 +14,7 @@ All required files are inside `Pod/Classes`, just copy and paste them.
 
 ## Example
 
-Some example...
+Add example...
 
 ## TODO's
 
