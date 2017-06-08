@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/davamale/AndroidDialogAlert'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'davamale' => 'david.martinez@unseen.is' }
+  s.authors           = { 'davamale' => 'david.martinez@unseen.is' }
   s.source           = { :git => 'https://github.com/davamale/AndroidDialogAlert.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
