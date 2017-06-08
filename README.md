@@ -1,7 +1,7 @@
 Android dialog alert
 ============
 
-This library is meant for ease of implementation. Although some customization is provided. 
+This library was created to be the simpleme meant for ease of implementation. Although some customization is provided. 
 
 ## Getting started
 
@@ -14,7 +14,26 @@ All required files are inside `Pod/Classes`, just copy and paste them.
 
 ## Example
 
-Add example...
+        let alert = DialogAlertView(titleText: "Alert", buttonText: "OK")
+        
+        alert.messageText = "This is a test message"
+        
+        alert.textField { (textField, range, string) in
+            if string == "s" {
+                alert.dialogColor = .red
+                return
+            }
+            alert.dialogColor = .white
+        }
+        
+        alert.buttonCompletion = { (alert) in
+            // do some action or validation
+            
+            alert.dismiss(animated: true, completion: nil)
+        }
+    
+        present(alert, animated: true, completion: nil)
+        
 
 ## TODO's
 
