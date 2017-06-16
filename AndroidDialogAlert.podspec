@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.description      = 'This library provides a very simple to use alert very similar to the Android Dialog Alert. Very easy to use and very easy to customize.'
 
   s.homepage         = 'https://github.com/davamale/AndroidDialogAlert'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://github.com/davamale/AndroidDialogAlert/blob/master/androidAlert_message.gif', 'https://github.com/davamale/AndroidDialogAlert/blob/master/androidAlert_message_textfield_cancel.gif', 'https://github.com/davamale/AndroidDialogAlert/blob/master/androidAlert_simple.gif'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.authors           = { 'davamale' => 'david.martinez@unseen.is' }
   s.source           = { :git => 'https://github.com/davamale/AndroidDialogAlert.git', :tag => s.version.to_s }
