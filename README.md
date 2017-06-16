@@ -35,6 +35,15 @@ All required files are inside `Pod/Classes`, just copy and paste them.
         present(alert, animated: true, completion: nil)
         
 
+#### Simple Alert
+[[https://github.com/davamale/AndroidDialogAlert/blob/master/androidAlert_simple.gif]]
+
+### Alert with Message
+[[https://github.com/davamale/AndroidDialogAlert/blob/master/androidAlert_message.gif]]
+
+### Alert with TextField and Cancel Button
+[[https://github.com/davamale/AndroidDialogAlert/blob/master/androidAlert_message_textfield_cancel.gif]]
+
 ## TODO's
 
 - [ ] add show and dismiss custom animations
