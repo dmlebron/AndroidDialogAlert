@@ -47,6 +47,9 @@ All required files are inside `Pod/Classes`, just copy and paste them.
 ## TODO's
 
 - [ ] add show and dismiss custom animations
+- [ ] add background blur effect
+- [ ] add two textfields support (for login)
+- [ ] something on your mind? let me know
 
 ## Requirements:
 
