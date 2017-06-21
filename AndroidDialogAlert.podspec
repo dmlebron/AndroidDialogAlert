@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AndroidDialogAlert'
-  s.version          = '0.1.23'
-  s.summary          = 'A short description of AndroidDialogAlert.'
+  s.version          = '0.2.0'
+  s.summary          = 'This library provides a very simple to use alert very similar to the Android Dialog Alert. Very easy to use and very easy to customize.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'This library provides a very simple to use alert very similar to the Android Dialog Alert. Very easy to use and very easy to customize.'
+  s.description      = 'This library was created to be the simpleme meant for ease of implementation. Although some customization is provided.'
 
   s.homepage         = 'https://github.com/davamale/AndroidDialogAlert'
   s.screenshots     = 'https://github.com/davamale/AndroidDialogAlert/blob/master/androidAlert_message.gif', 'https://github.com/davamale/AndroidDialogAlert/blob/master/androidAlert_message_textfield_cancel.gif', 'https://github.com/davamale/AndroidDialogAlert/blob/master/androidAlert_simple.gif'
