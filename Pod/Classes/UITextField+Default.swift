@@ -15,7 +15,7 @@ extension UITextField {
     }
     
     private var layerColor: UIColor {
-        return .groupTableViewBackground
+        return UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     }
     
     /// Adds bottom layer of height equals 1.

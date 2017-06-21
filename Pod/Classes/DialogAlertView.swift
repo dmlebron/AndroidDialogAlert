@@ -260,6 +260,9 @@ public class DialogAlertView: UIViewController {
     /// Action of the alternate button.
     fileprivate var alternateButtonCompletion: ButtonCompletion?
     
+    //TODO: Add keyboard constraints property
+    public var alertBottomCon: NSLayoutConstraint?
+    
     //MARK: Initializers
     public init(titleText: String, buttonText: String) {
         super.init(nibName: nil, bundle: nil)
@@ -282,6 +285,21 @@ public class DialogAlertView: UIViewController {
     }
     
     // TODO: Add keyboard listener and contraints
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // adds show/hide keyboard events notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // removes all keyboard events notifications
+        NotificationCenter.default.removeObserver(self)
+    }
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -293,7 +311,7 @@ public class DialogAlertView: UIViewController {
         textField.addBottomLine()
     }
     
-    //MARK: Actions
+    //MARK: - Actions
     
     /// Button action.
     ///
@@ -325,6 +343,19 @@ public class DialogAlertView: UIViewController {
     @objc internal func hideKeyboard() {
         textField?.resignFirstResponder()
     }
+    
+    //MARK: - Keyboard Handlers
+    @objc private func handleKeyboardShow(notification: NSNotification) {
+        if let keyboardDictionary = notification.userInfo as NSDictionary?, let keyboardFrame = keyboardDictionary[UIKeyboardFrameEndUserInfoKey] as? CGRect {
+            enableKeyboardContraint(keyboardHeight: keyboardFrame.size.height)
+        }
+        
+    }
+    
+    @objc private func handleKeyboardHide(notification: NSNotification) {
+        disableKeyboardContraint()
+    }
+    
 }
 
 // MARK: - Private Methods

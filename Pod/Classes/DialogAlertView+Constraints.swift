@@ -24,6 +24,7 @@ internal extension DialogAlertView {
         
         // Dialog View
         let centerYConstraint = dialogView.centerYAnchor.constraint(equalTo: background.centerYAnchor)
+        centerYConstraint.priority = 750
         centerYConstraint.isActive = true
         
         let centerXConstraint = dialogView.centerXAnchor.constraint(equalTo: background.centerXAnchor)
@@ -39,6 +40,9 @@ internal extension DialogAlertView {
         let trailingConstraint = dialogView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -DialogFrame.padding.value)
         trailingConstraint.priority = 999
         trailingConstraint.isActive = true
+        
+        // will be activated on keyboard events
+        alertBottomCon = dialogView.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: DialogFrame.padding.value)
         
         // Title label
         let titleLeadingCon = titleLabel.leadingAnchor.constraint(equalTo: dialogView.leadingAnchor, constant: DialogFrame.padding.value)
@@ -117,6 +121,27 @@ internal extension DialogAlertView {
         }
         
         dialogView.setNeedsDisplay()
+    }
+    
+    func enableKeyboardContraint(keyboardHeight: CGFloat) {
+        
+        self.alertBottomCon?.constant = -(DialogFrame.padding.value + keyboardHeight)
+        self.alertBottomCon?.isActive = true
+        
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion:nil)
+        
+
+    }
+    
+    func disableKeyboardContraint() {
+        
+        self.alertBottomCon?.isActive = false
+        
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion:nil)
     }
     
     /// Adds textfield constraints. Textfield is optional.
