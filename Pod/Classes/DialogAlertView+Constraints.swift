@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal extension DialogAlertView {
+internal extension AndroidDialogAlert {
     
     //MARK: Constraints
     /// initializes all contraints, excepts the background's view.

@@ -1,7 +1,7 @@
 Android dialog alert
 ============
 
-This library was created to be the simpleme meant for ease of implementation. Although some customization is provided. 
+This library was created for simple and fast implementation.
 
 ## Getting started
 

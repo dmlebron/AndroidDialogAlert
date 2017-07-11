@@ -40,11 +40,11 @@ extension Subview where Self: UIView {
 }
 
 
-public typealias ButtonCompletion = (DialogAlertView) -> ()
+public typealias ButtonCompletion = (AndroidDialogAlert) -> ()
 
 public typealias TextFieldDelegateClosure = (_ textField: UITextField, _ range: NSRange, _ replacementString: String) -> ()
 
-public class DialogAlertView: UIViewController {
+public class AndroidDialogAlert: UIViewController {
     
     private var defaultDialogBorderColor: UIColor {
         return UIColor.groupTableViewBackground
@@ -72,7 +72,7 @@ public class DialogAlertView: UIViewController {
         dv.layer.cornerRadius = DialogFrame.cornerRadious.value
         dv.layer.borderWidth = DialogFrame.borderWidth.value
         dv.layer.borderColor = self.defaultDialogBorderColor.cgColor
-        dv.layer.shadowOffset = CGSize(width:0, height:20);
+        dv.layer.shadowOffset = CGSize(width:0, height:12);
         dv.layer.shadowRadius = 5;
         dv.layer.shadowOpacity = 0.5;
         
@@ -95,6 +95,7 @@ public class DialogAlertView: UIViewController {
         let btn = UIButton(frame: .zero)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitleColor(.black, for: .normal)
+        btn.titleLabel?.font = UIFont.italicSystemFont(ofSize: 16)
         btn.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
         return btn
@@ -108,6 +109,7 @@ public class DialogAlertView: UIViewController {
         aBtn.setTitleColor(.red, for: .normal)
         aBtn.translatesAutoresizingMaskIntoConstraints = false
         aBtn.setTitleColor(.black, for: .normal)
+        aBtn.titleLabel?.font = UIFont.italicSystemFont(ofSize: 16)
         aBtn.addTarget(self, action: #selector(alternateButtonPressed), for: .touchUpInside)
         
         return aBtn
@@ -254,6 +256,20 @@ public class DialogAlertView: UIViewController {
         }
     }
     
+    /// Detault button title color
+    public var buttonColor: UIColor? {
+        willSet {
+            button.setTitleColor(newValue, for: .normal)
+        }
+    }
+    
+    /// Alternate button title color
+    public var alternateButtonColor: UIColor? {
+        willSet {
+            alternateButton.setTitleColor(newValue, for: .normal)
+        }
+    }
+    
     /// Action of the default button. If action is nil, `dismiss()` will be called.
     public var buttonCompletion: ButtonCompletion?
     
@@ -359,7 +375,7 @@ public class DialogAlertView: UIViewController {
 }
 
 // MARK: - Private Methods
-private extension DialogAlertView {
+private extension AndroidDialogAlert {
     
     /// Initializes the view controller with some required default parameters
     func defaultCustomization() {
@@ -400,7 +416,7 @@ private extension DialogAlertView {
 }
 
 // MARK: - UITextField Delegate
-extension DialogAlertView: UITextFieldDelegate {
+extension AndroidDialogAlert: UITextFieldDelegate {
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         textFieldClosure?(textField, range, string)
@@ -409,7 +425,7 @@ extension DialogAlertView: UITextFieldDelegate {
 }
 
 // MARK: - Public Methods
-public extension DialogAlertView {
+public extension AndroidDialogAlert {
     
     /// Initializes and adds the alternate button.
     ///
