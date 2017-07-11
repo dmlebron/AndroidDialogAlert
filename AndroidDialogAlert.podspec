@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AndroidDialogAlert'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'This library provides a very simple to use alert very similar to the Android Dialog Alert. Very easy to use and very easy to customize.'
 
 # This description is used to generate tags and improve search results.
