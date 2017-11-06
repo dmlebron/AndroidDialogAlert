@@ -1,7 +1,7 @@
 Android dialog alert
 ============
 
-This library was created for simple and fast implementation.
+This library was created for simple and quick and easy implementation.
 
 ## Getting started
 
